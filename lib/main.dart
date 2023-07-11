@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/screens/test/home_page.dart';
+import 'Routes/generated_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(title: 'Test Home Page'),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator().generateRoute,
     );
   }
 }
