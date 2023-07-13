@@ -29,10 +29,10 @@ class BuyerPostCardComp extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Image(
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
             image: NetworkImage(postProductImageURL),
-            height: 185,
-            width: 185,
+            height: 180,
+            width: 130,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -41,8 +41,8 @@ class BuyerPostCardComp extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20.0, 0.0, 2.0, 0.0),
                   child: SizedBox(
-                    width: 175,
-                    height: 158,
+                    width: 180,
+                    height: 180,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
