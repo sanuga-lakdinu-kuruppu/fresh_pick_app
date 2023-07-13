@@ -11,7 +11,7 @@ class _MarketplaceState extends State<Marketplace> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Text('mktpl'),
       ),
     );

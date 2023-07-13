@@ -49,9 +49,6 @@ class BuyerLandingPage extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text(_pages.elementAt(state.tabIndex).toString()),
-          ),
           bottomNavigationBar: BottomNavigationBar(
             items: _bottomNavBarItems,
             currentIndex: state.tabIndex,
@@ -63,7 +60,7 @@ class BuyerLandingPage extends StatelessWidget {
                   .add(TabChange(tabIndex: index));
             },
           ),
-          body: Center(
+          body: Container(
             child: _pages.elementAt(state.tabIndex),
           ),
         );
