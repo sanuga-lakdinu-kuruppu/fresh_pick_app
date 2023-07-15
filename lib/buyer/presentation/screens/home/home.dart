@@ -1,10 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/components/buyer_appbar.dart';
-import 'package:fresh_pick_app/components/buyer_post_card_comp.dart';
-import 'package:fresh_pick_app/components/complete_profile_card/complete_profile_card.dart';
-import 'package:fresh_pick_app/utils/colors.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_appbar/buyer_appbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_bottom_navbar/buyer_bottom_navbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_post_card/buyer_post_card.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/complete_profile_card/complete_profile_card.dart';
+import 'package:fresh_pick_app/buyer/utils/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BuyerAppbar(
+        customAutomaticallyImplyLeading: false,
         customShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
@@ -82,6 +84,7 @@ class _HomeState extends State<Home> {
         ),
         title: 'Home',
       ),
+      bottomNavigationBar: BuyerBottomNavbar(currentIndex: 0),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

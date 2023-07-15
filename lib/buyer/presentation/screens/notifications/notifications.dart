@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_appbar/buyer_appbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_bottom_navbar/buyer_bottom_navbar.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -10,8 +12,10 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: BuyerAppbar(title: 'Notifications'),
+      bottomNavigationBar: const BuyerBottomNavbar(currentIndex: 3),
+      body: const Center(
         child: Text('Notifications'),
       ),
     );

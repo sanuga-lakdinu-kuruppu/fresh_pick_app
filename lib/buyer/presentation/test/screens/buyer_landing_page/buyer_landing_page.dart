@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fresh_pick_app/screens/buyer/home/home.dart';
-import 'package:fresh_pick_app/screens/buyer/marketplace/marketplace.dart';
-import 'package:fresh_pick_app/screens/buyer/notifications/notifications.dart';
-import 'package:fresh_pick_app/screens/buyer/orders/orders.dart';
-import 'package:fresh_pick_app/screens/buyer/settings/settings.dart';
+import 'package:fresh_pick_app/buyer/presentation/screens/home/home.dart';
+import 'package:fresh_pick_app/buyer/presentation/screens/marketplace/marketplace.dart';
+import 'package:fresh_pick_app/buyer/presentation/screens/orders/orders.dart';
+import 'package:fresh_pick_app/buyer/presentation/screens/notifications/notifications.dart';
+import 'package:fresh_pick_app/buyer/presentation/screens/settings/settings.dart';
 
 import 'bloc/buyer_landing_page_bloc.dart';
 

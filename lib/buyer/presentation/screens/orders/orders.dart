@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/components/buyer_appbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_appbar/buyer_appbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/components/buyer_bottom_navbar/buyer_bottom_navbar.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -39,6 +40,7 @@ class _OrdersState extends State<Orders> {
             ),
           ),
         ),
+        bottomNavigationBar: const BuyerBottomNavbar(currentIndex: 2),
         body: TabBarView(
           children: <Widget>[
             ListView.builder(

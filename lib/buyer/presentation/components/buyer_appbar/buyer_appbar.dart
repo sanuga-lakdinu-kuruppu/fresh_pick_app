@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/utils/colors.dart';
-
-// create a widget BuyerAppbar which extends AppBar widget from flutter
+import 'package:fresh_pick_app/buyer/utils/colors.dart';
 
 class BuyerAppbar extends AppBar {
+  final Widget? customLeading;
+  final bool customAutomaticallyImplyLeading;
   final PreferredSizeWidget? customBottom;
   final ShapeBorder? customShape;
   BuyerAppbar({
@@ -11,7 +11,11 @@ class BuyerAppbar extends AppBar {
     required String title,
     this.customBottom,
     this.customShape,
+    this.customLeading,
+    this.customAutomaticallyImplyLeading = true,
   }) : super(
+          automaticallyImplyLeading: customAutomaticallyImplyLeading,
+          leading: customLeading,
           bottom: customBottom,
           shape: customShape,
           backgroundColor: buyerMainColor,
