@@ -6,7 +6,7 @@ class PostDataModel {
   final double minimumOrderQty;
   final String unit;
   final double minimumOrderPrice;
-  final double minimumOrderPricePer;
+  final int minimumOrderPricePer;
   final double productRating;
   final bool productStatus;
   final int countCompletedOrders;
