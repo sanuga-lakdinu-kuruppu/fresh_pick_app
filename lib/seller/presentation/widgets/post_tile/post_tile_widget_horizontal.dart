@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../data/models/post/post.dart';
 
-class PostTileWidget extends StatelessWidget {
+class PostTileWidgetHorizontal extends StatelessWidget {
   final PostDataModel post;
 
-  const PostTileWidget({super.key, required this.post});
+  const PostTileWidgetHorizontal({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class PostTileWidget extends StatelessWidget {
         height: 160,
         width: 350,
         margin: const EdgeInsets.only(
-          bottom: 10.0,
+          right: 10.0,
         ),
         decoration: const BoxDecoration(
           color: Colors.white,
