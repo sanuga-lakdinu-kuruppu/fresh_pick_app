@@ -124,80 +124,77 @@ class HomeScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Expanded(
-                  child: SizedBox(
-                    width: double.maxFinite,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Recent Posts',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(151, 151, 151, 1),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                child: SizedBox(
+                  width: double.maxFinite,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Recent Posts',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(151, 151, 151, 1),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
                                 ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Icon(
-                                  Icons.post_add,
-                                  color: Color.fromRGBO(105, 240, 174, 1),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'See All',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(105, 240, 174, 1),
-                                  fontWeight: FontWeight.w700),
-                            )
-                          ],
-                        ),
-                        const Text(
-                          'What have you previously posted in',
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return PostTileWidgetHorizontal(
-                                post: PostListData.postList
-                                    .map((e) => PostDataModel(
-                                        imageUrl: e['imageUrl'],
-                                        id: e['id'],
-                                        productName: e['productName'],
-                                        productCategory: e['productCategory'],
-                                        productSubCategory:
-                                            e['productSubCategory'],
-                                        minimumOrderQty: e['minimumOrderQty'],
-                                        unit: e['unit'],
-                                        minimumOrderPrice:
-                                            e['minimumOrderPrice'],
-                                        minimumOrderPricePer:
-                                            e['minimumOrderPricePer'],
-                                        productRating: e['productRating'],
-                                        productStatus: e['productStatus'],
-                                        countCompletedOrders:
-                                            e['countCompletedOrders']))
-                                    .toList()
-                                    .first,
-                              );
-                            },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.post_add,
+                                color: Color.fromRGBO(105, 240, 174, 1),
+                              ),
+                            ],
                           ),
+                          Text(
+                            'See All',
+                            style: TextStyle(
+                                color: Color.fromRGBO(105, 240, 174, 1),
+                                fontWeight: FontWeight.w700),
+                          )
+                        ],
+                      ),
+                      const Text(
+                        'What have you previously posted in',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                      SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return PostTileWidgetHorizontal(
+                              post: PostListData.postList
+                                  .map((e) => PostDataModel(
+                                      imageUrl: e['imageUrl'],
+                                      id: e['id'],
+                                      productName: e['productName'],
+                                      productCategory: e['productCategory'],
+                                      productSubCategory:
+                                          e['productSubCategory'],
+                                      minimumOrderQty: e['minimumOrderQty'],
+                                      unit: e['unit'],
+                                      minimumOrderPrice: e['minimumOrderPrice'],
+                                      minimumOrderPricePer:
+                                          e['minimumOrderPricePer'],
+                                      productRating: e['productRating'],
+                                      productStatus: e['productStatus'],
+                                      countCompletedOrders:
+                                          e['countCompletedOrders']))
+                                  .toList()
+                                  .first,
+                            );
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
