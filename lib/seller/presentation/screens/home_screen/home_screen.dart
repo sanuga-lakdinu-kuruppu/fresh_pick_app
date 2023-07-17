@@ -200,53 +200,51 @@ class HomeScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, bottom: 16, right: 16),
-                child: Expanded(
-                  child: SizedBox(
-                    width: double.maxFinite,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Analytics',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(151, 151, 151, 1),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                child: SizedBox(
+                  width: double.maxFinite,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Analytics',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(151, 151, 151, 1),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
                                 ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Icon(
-                                  Icons.analytics,
-                                  color: Color.fromRGBO(105, 240, 174, 1),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Text(
-                          'How is your business working',
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: 5,
-                            itemBuilder: (context, index) {
-                              return RequestedTile();
-                            },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Icon(
+                                Icons.analytics,
+                                color: Color.fromRGBO(105, 240, 174, 1),
+                              ),
+                            ],
                           ),
+                        ],
+                      ),
+                      const Text(
+                        'How is your business working',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                      SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return RequestedTile();
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

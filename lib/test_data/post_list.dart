@@ -51,7 +51,7 @@ class PostListData {
       'productCategory': 'Vegetable',
       'productSubCategory': 'Leafy Greens',
       'minimumOrderQty': 20.0,
-      'unit': 'bunches',
+      'unit': 'kg',
       'minimumOrderPrice': 60.00,
       'minimumOrderPricePer': 3,
       'productRating': 4.3,
