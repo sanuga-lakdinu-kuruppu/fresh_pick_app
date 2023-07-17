@@ -21,4 +21,8 @@ class MarketplaceNavigateToNewPostPageActionState
     extends MarketplacePageActionState {}
 
 class MarketplaceNavigateToPostDetailPageActionState
-    extends MarketplacePageActionState {}
+    extends MarketplacePageActionState {
+  final PostDataModel selectedPost;
+
+  MarketplaceNavigateToPostDetailPageActionState({required this.selectedPost});
+}

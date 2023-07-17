@@ -12,26 +12,25 @@ class BillingPaymentTile extends StatelessWidget {
         width: 350,
         height: 160,
         decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            boxShadow: [
-              BoxShadow(
-                spreadRadius: 0,
-                offset: Offset(0, 4),
-                blurRadius: 2,
-                color: Colors.grey,
-              )
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          boxShadow: [
+            BoxShadow(
+              spreadRadius: 0,
+              offset: Offset(0, 4),
+              blurRadius: 2,
+              color: Colors.grey,
+            )
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.greenAccent,
             ],
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white,
-                  Colors.greenAccent,
-                ],
-                stops: [
-                  0.1,
-                  1.0
-                ])),
+            stops: [0.1, 1.0],
+          ),
+        ),
         child: Row(
           children: [
             Column(

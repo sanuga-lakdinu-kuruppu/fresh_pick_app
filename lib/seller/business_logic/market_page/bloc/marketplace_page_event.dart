@@ -11,4 +11,8 @@ class FinishedButtonClickedEvent extends MarketplacePageEvent {}
 
 class ActiveButtonClickedEvent extends MarketplacePageEvent {}
 
-class PostTileClickedEvent extends MarketplacePageEvent {}
+class PostTileClickedEvent extends MarketplacePageEvent {
+  final PostDataModel selectedPost;
+
+  PostTileClickedEvent({required this.selectedPost});
+}

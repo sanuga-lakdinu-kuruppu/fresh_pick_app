@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_pick_app/seller/presentation/screens/new_post_screen/new_post.dart';
+import 'package:fresh_pick_app/seller/presentation/screens/post_details_screen/post_details.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/loading_tile/screen_loading_tile.dart';
 import 'package:fresh_pick_app/seller/presentation/widgets/post_tile/post_tile_widget.dart';
 import '../../../business_logic/market_page/bloc/marketplace_page_bloc.dart';
 
@@ -25,15 +27,23 @@ class _MarketScreenState extends State<MarketScreen> {
       bloc: marketplacePageBloc,
       listenWhen: (previous, current) => current is MarketplacePageActionState,
       buildWhen: (previous, current) => current is! MarketplacePageActionState,
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is MarketplaceNavigateToNewPostPageActionState) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NewPost()));
+        } else if (state is MarketplaceNavigateToPostDetailPageActionState) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PostDetailsPage(
+                        post: state.selectedPost,
+                      )));
+        }
+      },
       builder: (context, state) {
         switch (state.runtimeType) {
           case MarketplaceLoadingState:
-            return const Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+            return const ScreenLoadingWidget();
           case MarketplaceLoadingSucessState:
             final sucessState = state as MarketplaceLoadingSucessState;
 
@@ -72,10 +82,8 @@ class _MarketScreenState extends State<MarketScreen> {
                           ),
                           IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const NewPost()));
+                              marketplacePageBloc
+                                  .add(NewPostButtonClickedEvent());
                             },
                             icon: const Icon(
                               Icons.add,
@@ -155,7 +163,10 @@ class _MarketScreenState extends State<MarketScreen> {
                         shrinkWrap: true,
                         itemCount: sucessState.posts.length,
                         itemBuilder: (context, index) {
-                          return PostTileWidget(post: sucessState.posts[index]);
+                          return PostTileWidget(
+                            post: sucessState.posts[index],
+                            marketPlaceBloc: marketplacePageBloc,
+                          );
                         },
                       ),
                     )

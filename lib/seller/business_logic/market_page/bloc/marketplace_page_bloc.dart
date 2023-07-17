@@ -12,12 +12,14 @@ class MarketplacePageBloc
     extends Bloc<MarketplacePageEvent, MarketplacePageState> {
   MarketplacePageBloc() : super(MarketplacePageInitial()) {
     on<InitialFetchEvent>(initialFetchEvent);
+    on<NewPostButtonClickedEvent>(newPostButtonClickedEvent);
+    on<PostTileClickedEvent>(postTileClickedEvent);
   }
 
   FutureOr<void> initialFetchEvent(
       InitialFetchEvent event, Emitter<MarketplacePageState> emit) async {
     emit(MarketplaceLoadingState());
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 4));
     emit(MarketplaceLoadingSucessState(
         posts: PostListData.postList
             .map((e) => PostDataModel(
@@ -34,5 +36,17 @@ class MarketplacePageBloc
                 productStatus: e['productStatus'],
                 countCompletedOrders: e['countCompletedOrders']))
             .toList()));
+  }
+
+  FutureOr<void> newPostButtonClickedEvent(
+      NewPostButtonClickedEvent event, Emitter<MarketplacePageState> emit) {
+    // await Future.delayed(const Duration(seconds: 3));
+    emit(MarketplaceNavigateToNewPostPageActionState());
+  }
+
+  FutureOr<void> postTileClickedEvent(
+      PostTileClickedEvent event, Emitter<MarketplacePageState> emit) {
+    emit(MarketplaceNavigateToPostDetailPageActionState(
+        selectedPost: event.selectedPost));
   }
 }
