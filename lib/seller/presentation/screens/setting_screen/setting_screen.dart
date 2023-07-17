@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/setting_page_payment_cards/billing_payment_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/setting_page_payment_cards/membership_tile.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -206,8 +208,17 @@ class SettingScreen extends StatelessWidget {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Mobile Number',
-                                style: TextStyle(color: Colors.grey)),
+                            Row(
+                              children: [
+                                Text('Mobile Number',
+                                    style: TextStyle(color: Colors.grey)),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.verified_user,
+                                  color: Colors.greenAccent,
+                                )
+                              ],
+                            ),
                             Text('+94771234567',
                                 style: TextStyle(
                                     fontSize: 14,
@@ -226,8 +237,17 @@ class SettingScreen extends StatelessWidget {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Email Address',
-                                style: TextStyle(color: Colors.grey)),
+                            Row(
+                              children: [
+                                Text('Email Address',
+                                    style: TextStyle(color: Colors.grey)),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.verified,
+                                  color: Colors.red,
+                                )
+                              ],
+                            ),
                             Text('viharapiyumanthi@gmail.com',
                                 style: TextStyle(
                                     fontSize: 14,
@@ -281,6 +301,151 @@ class SettingScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                   ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 170,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    BillingPaymentTile(),
+                    SizedBox(width: 10),
+                    MembershipTile(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text('Your Preferences',
+                      style: TextStyle(
+                          color: Color.fromRGBO(151, 151, 151, 1),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700)),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                width: 390,
+                height: 290,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    boxShadow: [
+                      BoxShadow(
+                        spreadRadius: 0,
+                        offset: Offset(0, 4),
+                        blurRadius: 2,
+                        color: Colors.grey,
+                      )
+                    ]),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Language',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('English',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
+                          ],
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.edit))
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text('Verification',
+                                    style: TextStyle(color: Colors.grey)),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.verified,
+                                  color: Colors.red,
+                                )
+                              ],
+                            ),
+                            Text('Not Verified',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
+                          ],
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.edit))
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Password',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('........',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
+                          ],
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.edit))
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(double.maxFinite, 67),
+                            shape: const RoundedRectangleBorder(
+                                side: BorderSide(
+                                    color: Colors.greenAccent, width: 2),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            backgroundColor: Colors.white),
+                        onPressed: () {},
+                        child: const Center(
+                          child: Text('Romove Account',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.greenAccent,
+                                  fontWeight: FontWeight.bold)),
+                        ))
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    minimumSize: const Size(double.maxFinite, 67),
+                    backgroundColor: Colors.greenAccent,
+                    foregroundColor: Colors.white),
+                onPressed: () {},
+                child: const Center(
+                  child: Text('Logout',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 ),
               ),
             ],
