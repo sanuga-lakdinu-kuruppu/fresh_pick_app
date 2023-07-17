@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fresh_pick_app/buyer/utils/colors.dart';
 
 class BuyerAppbar extends AppBar {
+  final double? buyerAppbarElevation;
+  final Color? customBackgroundColor;
   final Widget? customLeading;
   final bool customAutomaticallyImplyLeading;
   final PreferredSizeWidget? customBottom;
@@ -12,13 +14,16 @@ class BuyerAppbar extends AppBar {
     this.customBottom,
     this.customShape,
     this.customLeading,
+    this.buyerAppbarElevation,
+    this.customBackgroundColor = buyerMainColor,
     this.customAutomaticallyImplyLeading = true,
   }) : super(
+          elevation: buyerAppbarElevation,
           automaticallyImplyLeading: customAutomaticallyImplyLeading,
           leading: customLeading,
           bottom: customBottom,
           shape: customShape,
-          backgroundColor: buyerMainColor,
+          backgroundColor: customBackgroundColor,
           title: Text(title, style: const TextStyle(color: Colors.white)),
           actions: [
             IconButton(

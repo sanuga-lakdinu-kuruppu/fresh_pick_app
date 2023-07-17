@@ -1,10 +1,8 @@
-// create a widget BuyerBottomNavbar which extends BottomNavigationbar widget from flutter
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_pick_app/routes/app_route_constants.dart';
 import 'package:go_router/go_router.dart';
-import '../../../bloc/components/buyer_bottom_navbar/buyer_bottom_navbar_bloc.dart';
+import 'bloc/buyer_bottom_navbar_bloc.dart';
 
 List<BottomNavigationBarItem> _bottomNavBarItems =
     const <BottomNavigationBarItem>[
@@ -62,6 +60,7 @@ class BuyerBottomNavbar extends StatelessWidget {
         },
         builder: (context, state) {
           return BottomNavigationBar(
+            elevation: 4,
             items: _bottomNavBarItems,
             currentIndex: currentIndex,
             showSelectedLabels: false,

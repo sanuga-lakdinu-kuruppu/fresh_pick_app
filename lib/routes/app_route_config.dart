@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/buyer/presentation/screens/error_page/error_page.dart';
+import 'package:fresh_pick_app/common/presentation/screens/error_page/error_page.dart';
 import 'package:fresh_pick_app/buyer/presentation/screens/home/home.dart';
 import 'package:fresh_pick_app/buyer/presentation/screens/marketplace/marketplace.dart';
 import 'package:fresh_pick_app/buyer/presentation/screens/notifications/notifications.dart';
@@ -15,35 +15,35 @@ class FreshPickRouter {
         name: FreshPickRouteConstants.buyerHome,
         path: '/',
         pageBuilder: (context, state) {
-          return const MaterialPage(child: Home());
+          return const MaterialPage(child: BuyerHomePage());
         },
         routes: <RouteBase>[
           GoRoute(
             name: FreshPickRouteConstants.buyerMarketplace,
             path: 'buyer_marketplace',
             pageBuilder: (context, state) {
-              return const MaterialPage(child: Marketplace());
+              return const MaterialPage(child: BuyerMarketplacePage());
             },
           ),
           GoRoute(
             name: FreshPickRouteConstants.buyerOrders,
             path: 'buyer_orders',
             pageBuilder: (context, state) {
-              return const MaterialPage(child: Orders());
+              return const MaterialPage(child: BuyerOrdersPage());
             },
           ),
           GoRoute(
             name: FreshPickRouteConstants.buyerNotifications,
             path: 'buyer_notifications',
             pageBuilder: (context, state) {
-              return const MaterialPage(child: Notifications());
+              return const MaterialPage(child: BuyerNotifiationsPage());
             },
           ),
           GoRoute(
             name: FreshPickRouteConstants.buyerSettings,
             path: 'buyer_settings',
             pageBuilder: (context, state) {
-              return const MaterialPage(child: Settings());
+              return const MaterialPage(child: BuyerSettingsPage());
             },
           ),
         ],

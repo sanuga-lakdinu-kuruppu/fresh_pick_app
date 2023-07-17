@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import '../../../../domains/models/post/post_model.dart';
 
-class BuyerPostCardComp extends StatelessWidget {
-  final String postProductName;
-  final int postProductMinimumOrder;
-  final String postProductUnit;
-  final double postProductPricePerUnit;
-  final String postProductImageURL;
-  final String postProductStatus;
-  final int postProductRating;
-  const BuyerPostCardComp(
-      {super.key,
-      required this.postProductName,
-      required this.postProductMinimumOrder,
-      required this.postProductUnit,
-      required this.postProductPricePerUnit,
-      required this.postProductImageURL,
-      required this.postProductStatus,
-      required this.postProductRating});
+class BuyerPostCardCompTest extends StatelessWidget {
+  final PostModel post;
+  const BuyerPostCardCompTest({super.key, required this.post});
+  // final String postProductName;
+  // final int postProductMinimumOrder;
+  // final String postProductUnit;
+  // final double postProductPricePerUnit;
+  // final String postProductImageURL;
+  // final String postProductStatus;
+  // final int postProductRating;
+  // const BuyerPostCardComp(
+  //     {super.key,
+  //     required this.postProductName,
+  //     required this.postProductMinimumOrder,
+  //     required this.postProductUnit,
+  //     required this.postProductPricePerUnit,
+  //     required this.postProductImageURL,
+  //     required this.postProductStatus,
+  //     required this.postProductRating});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class BuyerPostCardComp extends StatelessWidget {
         children: <Widget>[
           Image(
             fit: BoxFit.fill,
-            image: NetworkImage(postProductImageURL),
+            image: Image.asset(post.imageUrl).image,
             height: 180,
             width: 130,
           ),
@@ -51,7 +54,7 @@ class BuyerPostCardComp extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                postProductName,
+                                post.productName,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
@@ -71,7 +74,7 @@ class BuyerPostCardComp extends StatelessWidget {
                                   children: <TextSpan>[
                                     TextSpan(
                                       text:
-                                          "Rs. $postProductPricePerUnit / $postProductUnit",
+                                          "${post.minimumOrderPrice}/${post.unit}",
                                       style: const TextStyle(
                                           color: Colors.black87,
                                           fontSize: 14.0,
@@ -92,7 +95,7 @@ class BuyerPostCardComp extends StatelessWidget {
                                   children: <TextSpan>[
                                     TextSpan(
                                       text:
-                                          "$postProductMinimumOrder $postProductUnit",
+                                          "${post.minimumOrderQty}/${post.unit}",
                                       style: const TextStyle(
                                           color: Colors.black87,
                                           fontSize: 14.0,
@@ -112,7 +115,7 @@ class BuyerPostCardComp extends StatelessWidget {
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: "$postProductRating / 5",
+                                      text: "${post.productRating} / 5",
                                       style: const TextStyle(
                                           color: Colors.black87,
                                           fontSize: 14.0,
@@ -139,7 +142,7 @@ class BuyerPostCardComp extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
                                 child: Text(
-                                  postProductStatus,
+                                  post.productStatus,
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 14.0,

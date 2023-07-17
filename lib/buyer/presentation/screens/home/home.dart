@@ -1,22 +1,24 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/buyer/presentation/components/buyer_appbar/buyer_appbar.dart';
-import 'package:fresh_pick_app/buyer/presentation/components/buyer_bottom_navbar/buyer_bottom_navbar.dart';
-import 'package:fresh_pick_app/buyer/presentation/components/buyer_post_card/buyer_post_card.dart';
-import 'package:fresh_pick_app/buyer/presentation/components/complete_profile_card/complete_profile_card.dart';
+import 'package:fresh_pick_app/buyer/presentation/widgets/buyer_appbar/buyer_appbar.dart';
+import 'package:fresh_pick_app/buyer/presentation/widgets/buyer_bottom_navbar/buyer_bottom_navbar.dart';
 import 'package:fresh_pick_app/buyer/utils/colors.dart';
+import 'package:fresh_pick_app/common/presentation/widgets/complete_profile_card/complete_profile_card.dart';
+import 'package:fresh_pick_app/common/presentation/widgets/post_card_hor/post_card_hor.dart';
+import '../../../data/data_sources/local_sources/post_local_source.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class BuyerHomePage extends StatefulWidget {
+  const BuyerHomePage({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<BuyerHomePage> createState() => _BuyerHomePageState();
 }
 
-class _HomeState extends State<Home> {
+class _BuyerHomePageState extends State<BuyerHomePage> {
   @override
   Widget build(BuildContext context) {
+    final postList = PostListLocalSource().postList;
     return Scaffold(
       appBar: BuyerAppbar(
         customAutomaticallyImplyLeading: false,
@@ -82,7 +84,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        title: 'Home',
+        title: 'Fresh Pick',
       ),
       bottomNavigationBar: BuyerBottomNavbar(currentIndex: 0),
       body: Column(
@@ -116,22 +118,15 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.only(bottom: 5),
                 ),
                 SizedBox(
-                  height: 160,
+                  height: 180,
                   child: ListView.builder(
-                    shrinkWrap: true,
+                    // shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                    itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
-                      return BuyerPostCardComp(
-                        postProductName:
-                            'Red Tomato(special) test overflow values ',
-                        postProductMinimumOrder: 60,
-                        postProductUnit: 'kg',
-                        postProductPricePerUnit: 70.0,
-                        postProductImageURL:
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX1FIkOZcnf24lIFqUtu56prP8tKcQA39Zh4enVXuv8lRGHd8rCgS9UoKErYDWgLa1Yy8&usqp=CAU',
-                        postProductStatus: 'Active',
-                        postProductRating: 4,
+                      return PostCardHor(
+                        post: postList[index],
+                        statusBorderColor: buyerMainColor,
                       );
                     },
                   ),

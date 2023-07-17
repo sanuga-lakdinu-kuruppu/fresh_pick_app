@@ -33,11 +33,11 @@ List<BottomNavigationBarItem> _bottomNavBarItems =
 ];
 
 List<Widget> _pages = const <Widget>[
-  Home(),
-  Marketplace(),
-  Orders(),
-  Notifications(),
-  Settings(),
+  BuyerHomePage(),
+  BuyerMarketplacePage(),
+  BuyerOrdersPage(),
+  BuyerNotifiationsPage(),
+  BuyerSettingsPage(),
 ];
 
 class BuyerLandingPage extends StatelessWidget {
