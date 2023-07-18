@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PendingTile extends StatelessWidget {
-  const PendingTile({super.key});
+class CompletedTile extends StatelessWidget {
+  const CompletedTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class PendingTile extends StatelessWidget {
         width: 191,
         margin: const EdgeInsets.only(right: 10),
         decoration: const BoxDecoration(
-            color: Color.fromRGBO(247, 129, 255, 1),
+            color: Color.fromRGBO(154, 240, 69, 1),
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
@@ -35,23 +35,23 @@ class PendingTile extends StatelessWidget {
                   height: 40,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/pending.png'),
+                      image: AssetImage('assets/images/orders.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Pending',
+                      'Completed',
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      'Rs. 75 500.00',
+                      '24',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,

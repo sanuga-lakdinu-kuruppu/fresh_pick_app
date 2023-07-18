@@ -35,7 +35,7 @@ class RequestedTile extends StatelessWidget {
                   height: 40,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/earn.png'),
+                      image: AssetImage('assets/images/orders.png'),
                       fit: BoxFit.cover,
                     ),
                   ),

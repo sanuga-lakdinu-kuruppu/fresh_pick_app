@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/accepted_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/cancelled_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/completed_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/earn_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/ongoing_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/pending_tile.dart';
 import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/requested_tile.dart';
 import 'package:fresh_pick_app/seller/presentation/widgets/post_tile/post_tile_widget_horizontal.dart';
 import '../../../../test_data/post_list.dart';
@@ -199,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16, bottom: 16, right: 16),
+                padding: const EdgeInsets.only(left: 16, bottom: 0, right: 16),
                 child: SizedBox(
                   width: double.maxFinite,
                   child: Column(
@@ -235,19 +241,136 @@ class HomeScreen extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 200,
-                        child: ListView.builder(
+                        child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return RequestedTile();
-                          },
+                          children: const [
+                            EarnTile(),
+                            PendingTile(),
+                            RequestedTile(),
+                            AcceptedTile(),
+                            OngoingTile(),
+                            CompletedTile(),
+                            CancelledTile()
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 16.0, right: 16.0, bottom: 16.0),
+                child: Container(
+                  padding:
+                      const EdgeInsets.only(left: 20.0, top: 30.0, right: 30.0),
+                  width: 390,
+                  height: 278,
+                  decoration: const BoxDecoration(
+                    color: Colors.blueGrey,
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Color.fromRGBO(105, 209, 240, 1),
+                        Color.fromRGBO(105, 240, 174, 1),
+                      ],
+                      stops: [0.1, 1.0],
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Fresh Pick',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'Where farming meets retails',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.yellow),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: 180,
+                            width: 200,
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/composting.png'))),
+                          )
+                        ],
+                      ),
+                      const SizedBox(width: 10),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                width: 73,
+                                height: 73,
+                                decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/newpost.png'))),
+                              ),
+                              const SizedBox(height: 10),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Start',
+                                      style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blue)),
+                                  Text('Posting',
+                                      style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blue)),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 26),
+                            child: Row(
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.yellow,
+                                    minimumSize: const Size(80, 30),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text('More'),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

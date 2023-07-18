@@ -68,6 +68,10 @@ flutter:
     - assets/images/billing.png
     - assets/images/invitation.png
     - assets/images/loading.png
+    - assets/images/pending.png
+    - assets/images/orders.png
+    - assets/images/composting.png
+    - assets/images/newpost.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
