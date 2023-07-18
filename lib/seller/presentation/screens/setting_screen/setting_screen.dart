@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_pick_app/buyer/utils/colors.dart';
-import 'package:fresh_pick_app/common/presentation/widgets/settings_billing_payment_card/settings_billing_payment_card.dart';
 import 'package:fresh_pick_app/routes/app_route_constants.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/setting_page_payment_cards/billing_payment_tile.dart';
+import 'package:fresh_pick_app/seller/presentation/widgets/setting_page_payment_cards/membership_tile.dart';
 import 'package:go_router/go_router.dart';
-import '../../widgets/buyer_appbar/buyer_appbar.dart';
-import '../../widgets/buyer_bottom_navbar/buyer_bottom_navbar.dart';
 
-class BuyerSettingsPage extends StatefulWidget {
-  const BuyerSettingsPage({Key? key}) : super(key: key);
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
 
-  @override
-  State<BuyerSettingsPage> createState() => _BuyerSettingsPageState();
-}
-
-class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BuyerAppbar(title: 'Settings'),
-      bottomNavigationBar: const BuyerBottomNavbar(currentIndex: 4),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16.0),
@@ -27,20 +18,18 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
                     minimumSize: const Size(double.maxFinite, 67),
                     backgroundColor: Colors.white,
-                    foregroundColor: Colors.blueAccent),
+                    foregroundColor: Colors.greenAccent),
                 onPressed: () {
                   GoRouter.of(context)
-                      .goNamed(FreshPickRouteConstants.sellerLandingScreen);
+                      .goNamed(FreshPickRouteConstants.buyerSettings);
                 },
                 child: const Center(
-                  child: Text(
-                    'Switch to Selling',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                  child: Text('Switching to buying',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
               ),
               const SizedBox(
@@ -49,12 +38,10 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
               Container(
                 padding: const EdgeInsets.all(16.0),
                 width: 390,
-                height: 140,
+                height: 150,
                 decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
                     boxShadow: [
                       BoxShadow(
                         spreadRadius: 0,
@@ -69,82 +56,84 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                       width: 105,
                       height: 105,
                       decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            image: NetworkImage(
-                                'https://th.bing.com/th/id/OIP.RL7XzQfWqZEpUako3s38cwAAAA?pid=ImgDet&rs=1'),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                          image: const DecorationImage(
+                              image: NetworkImage(
+                                  'https://th.bing.com/th/id/OIP.RL7XzQfWqZEpUako3s38cwAAAA?pid=ImgDet&rs=1'),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.circular(15)),
                     ),
                     const SizedBox(
-                      width: 15,
+                      width: 25,
                     ),
                     SizedBox(
-                      width: 200,
-                      height: 140,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                      width: 180,
+                      height: double.maxFinite,
+                      child: Column(children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Row(
-                              children: [
-                                const SizedBox(
-                                  width: 150,
-                                  child: Text(
-                                    'Vihara Piyumanthi',
+                            Container(
+                              width: 60,
+                              padding: const EdgeInsets.all(2.0),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  border: Border.all(
+                                      color: Colors.greenAccent, width: 2)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 6,
+                                    width: 6,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.yellow,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Text(
+                                    'Active',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                        fontSize: 10,
+                                        color: Colors.greenAccent),
                                   ),
-                                ),
-                                Container(
-                                  width: 50,
-                                  padding: const EdgeInsets.all(2.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                    border: Border.all(
-                                        color: buyerMainColor, width: 2),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: 6,
-                                        width: 6,
-                                        decoration: const BoxDecoration(
-                                          color: Colors.yellow,
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      const Text(
-                                        'Active',
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            color: Colors.greenAccent),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                            const SizedBox(height: 5),
-                            const Row(
-                              children: [
-                                Icon(Icons.star, color: Colors.yellow),
-                                Icon(Icons.star, color: Colors.yellow),
-                                Icon(Icons.star, color: Colors.yellow),
-                                Icon(Icons.star, color: Colors.yellow),
-                                Icon(Icons.star, color: Colors.red),
-                                SizedBox(width: 10),
-                                Text('4 / 5')
-                              ],
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        const Row(
+                          children: [
+                            SizedBox(
+                              width: 160,
+                              child: Text(
+                                'Vihara Piyumanthi',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                             )
-                          ]),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        const Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.red),
+                            SizedBox(width: 10),
+                            Text('4 / 5')
+                          ],
+                        )
+                      ]),
                     ),
                   ],
                 ),
@@ -153,13 +142,11 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    'Your Info',
-                    style: TextStyle(
-                        color: Color.fromRGBO(151, 151, 151, 1),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700),
-                  ),
+                  Text('Your Info',
+                      style: TextStyle(
+                          color: Color.fromRGBO(151, 151, 151, 1),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700)),
                 ],
               ),
               const SizedBox(height: 10),
@@ -169,9 +156,7 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                 height: 360,
                 decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
                     boxShadow: [
                       BoxShadow(
                         spreadRadius: 0,
@@ -188,23 +173,17 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Full Name',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            Text(
-                              'D. Y. Vihara Piyumanthi',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('Full Name',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('D. Y. Vihara Piyumanthi',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.edit),
-                        ),
+                            onPressed: () {}, icon: const Icon(Icons.edit))
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -214,23 +193,17 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Address',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            Text(
-                              '165/52, Main Road, Galle.',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('Address',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('165/52, Main Road, Galle.',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.edit),
-                        ),
+                            onPressed: () {}, icon: const Icon(Icons.edit))
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -240,23 +213,26 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Mobile Number',
-                              style: TextStyle(color: Colors.grey),
+                            Row(
+                              children: [
+                                Text('Mobile Number',
+                                    style: TextStyle(color: Colors.grey)),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.verified_user,
+                                  color: Colors.greenAccent,
+                                )
+                              ],
                             ),
-                            Text(
-                              '+94771234567',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('+94771234567',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.edit),
-                        ),
+                            onPressed: () {}, icon: const Icon(Icons.edit))
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -266,23 +242,26 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Email Address',
-                              style: TextStyle(color: Colors.grey),
+                            Row(
+                              children: [
+                                Text('Email Address',
+                                    style: TextStyle(color: Colors.grey)),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.verified,
+                                  color: Colors.red,
+                                )
+                              ],
                             ),
-                            Text(
-                              'viharapiyumanthi@gmail.com',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('viharapiyumanthi@gmail.com',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.edit),
-                        ),
+                            onPressed: () {}, icon: const Icon(Icons.edit))
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -292,23 +271,17 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Nic Number',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            Text(
-                              '199813456V',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('Nic Number',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('199813456V',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.edit),
-                        ),
+                            onPressed: () {}, icon: const Icon(Icons.edit))
                       ],
                     ),
                     const SizedBox(height: 5),
@@ -318,17 +291,13 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Date of Birth',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            Text(
-                              '25 February 1998',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black),
-                            ),
+                            Text('Date of Birth',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('25 February 1998',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black))
                           ],
                         ),
                         IconButton(
@@ -340,9 +309,16 @@ class _BuyerSettingsPageState extends State<BuyerSettingsPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              const SizedBox(
+              SizedBox(
                 height: 170,
-                child: SettingsBillingPaymentCard(),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    BillingPaymentTile(),
+                    SizedBox(width: 10),
+                    MembershipTile(),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               const Row(
