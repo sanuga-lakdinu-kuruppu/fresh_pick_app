@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_pick_app/seller/presentation/screens/membership_screen/membership_screen.dart';
 
 class MembershipTile extends StatelessWidget {
   const MembershipTile({super.key});
@@ -70,7 +71,12 @@ class MembershipTile extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MembershipScreen()));
+                  },
                   child: const Text('More'),
                 ),
               ],

@@ -41,7 +41,6 @@ class PostDetailsPage extends StatelessWidget {
                     width: double.maxFinite,
                     height: 220,
                     decoration: BoxDecoration(
-                      color: Colors.red,
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                       image: DecorationImage(
                           image: NetworkImage(post.imageUrl),

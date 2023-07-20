@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_pick_app/seller/presentation/screens/billing_payments_screen/billing_payment_screen.dart';
 
 class BillingPaymentTile extends StatelessWidget {
   const BillingPaymentTile({super.key});
@@ -58,7 +59,13 @@ class BillingPaymentTile extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const BillingPaymentScreen()));
+                  },
                   child: const Text('More'),
                 ),
               ],

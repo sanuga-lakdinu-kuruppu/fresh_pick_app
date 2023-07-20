@@ -32,7 +32,7 @@ class SettingScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(16.0),
-                width: 390,
+                width: double.maxFinite,
                 height: 150,
                 decoration: const BoxDecoration(
                     color: Colors.white,
@@ -61,11 +61,10 @@ class SettingScreen extends StatelessWidget {
                       width: 25,
                     ),
                     SizedBox(
-                      width: 180,
                       height: double.maxFinite,
                       child: Column(children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
                               width: 60,

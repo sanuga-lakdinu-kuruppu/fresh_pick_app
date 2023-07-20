@@ -60,5 +60,50 @@ class PostListData {
       'imageUrl':
           'https://www.treehugger.com/thmb/QqzRcs4_WSSmFWZk6ePBU3QA6K0=/2121x1414/filters:fill(auto,1)/GettyImages-914241562-14a45a7d90f04701b48eaf26dac309cd.jpg',
     },
+    {
+      'id': '05',
+      'productName': 'Egg Plant (Sri Lankan)',
+      'productCategory': 'Vegetable',
+      'productSubCategory': 'Leafy Greens',
+      'minimumOrderQty': 20.0,
+      'unit': 'kg',
+      'minimumOrderPrice': 60.00,
+      'minimumOrderPricePer': 3,
+      'productRating': 4.3,
+      'productStatus': true,
+      'countCompletedOrders': 10,
+      'imageUrl':
+          'https://th.bing.com/th/id/R.788c95e5f0f106bea52ab895ef99584f?rik=NVZEtavHkaIHtA&pid=ImgRaw&r=0',
+    },
+    {
+      'id': '05',
+      'productName': 'Green Beans (Sri Lankan)',
+      'productCategory': 'Vegetable',
+      'productSubCategory': 'Leafy Greens',
+      'minimumOrderQty': 20.0,
+      'unit': 'kg',
+      'minimumOrderPrice': 60.00,
+      'minimumOrderPricePer': 3,
+      'productRating': 4.3,
+      'productStatus': true,
+      'countCompletedOrders': 10,
+      'imageUrl':
+          'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0',
+    },
+    {
+      'id': '06',
+      'productName': 'Beetroots (Regular)',
+      'productCategory': 'Vegetable',
+      'productSubCategory': 'Leafy Greens',
+      'minimumOrderQty': 20.0,
+      'unit': 'kg',
+      'minimumOrderPrice': 60.00,
+      'minimumOrderPricePer': 3,
+      'productRating': 4.3,
+      'productStatus': true,
+      'countCompletedOrders': 10,
+      'imageUrl':
+          'https://th.bing.com/th/id/OIP.Vz4AEN9c10xb1CyHUZ4EXgHaE8?pid=ImgDet&w=1024&h=683&rs=1',
+    },
   ];
 }

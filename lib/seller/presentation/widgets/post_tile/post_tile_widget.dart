@@ -20,7 +20,7 @@ class PostTileWidget extends StatelessWidget {
         },
         child: Container(
           height: 160,
-          width: 350,
+          width: double.maxFinite,
           margin: const EdgeInsets.only(
             bottom: 10.0,
           ),
@@ -41,11 +41,14 @@ class PostTileWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              //396 328  0.052986
               Hero(
                 tag: post.id,
                 child: Container(
                   height: 160,
-                  width: 160,
+                  width: MediaQuery.of(context).size.height *
+                      MediaQuery.of(context).size.width *
+                      0.00052986,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(15),
