@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class NewPost extends StatefulWidget {
   const NewPost({super.key});
@@ -8,23 +11,46 @@ class NewPost extends StatefulWidget {
 }
 
 class _NewPostState extends State<NewPost> {
-  String selectedItem = '0';
-  List<DropdownMenuItem<String>> get dropDownListItems {
-    List<DropdownMenuItem<String>> menuItem = [
-      const DropdownMenuItem(
-        value: '0',
-        child: Text('Vegetables'),
-      ),
-      const DropdownMenuItem(
-        value: '1',
-        child: Text('Fruits'),
-      ),
-      const DropdownMenuItem(
-        value: '2',
-        child: Text('Flower'),
-      ),
+  String? selectedCategoryItem = '0';
+  String? selectedSubCategoryItem = '0';
+  String? selectedUnitItemMinimumOrder = '0';
+  String? selectedUnitItemPrice = '0';
+
+  File? imageFile;
+
+  TextEditingController productNameController = TextEditingController();
+  TextEditingController minimumOrderQtyController = TextEditingController();
+  TextEditingController minimumPriceController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController districtController = TextEditingController();
+  TextEditingController provinceController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
+  List<DropdownMenuItem<String>> get dropDownListItemsCategory {
+    List<DropdownMenuItem<String>> categoryList = [
+      const DropdownMenuItem(value: '0', child: Text('Vegetables')),
+      const DropdownMenuItem(value: '1', child: Text('Fruits')),
+      const DropdownMenuItem(value: '2', child: Text('Flower')),
     ];
-    return menuItem;
+    return categoryList;
+  }
+
+  List<DropdownMenuItem<String>> get dropDownListItemsSubCategory {
+    List<DropdownMenuItem<String>> categoryList = [
+      const DropdownMenuItem(value: '0', child: Text('Upcountry')),
+      const DropdownMenuItem(value: '1', child: Text('Downcountry')),
+    ];
+    return categoryList;
+  }
+
+  List<DropdownMenuItem<String>> get dropDownListItemsUnit {
+    List<DropdownMenuItem<String>> categoryList = [
+      const DropdownMenuItem(value: '0', child: Text('g (grams)')),
+      const DropdownMenuItem(value: '1', child: Text('kg (Kilograms)')),
+      const DropdownMenuItem(value: '2', child: Text('Pack')),
+      const DropdownMenuItem(value: '3', child: Text('Bucket')),
+    ];
+    return categoryList;
   }
 
   @override
@@ -59,25 +85,52 @@ class _NewPostState extends State<NewPost> {
                 Container(
                   width: double.maxFinite,
                   height: 220,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/noimage.png'),
-                        fit: BoxFit.cover),
-                  ),
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                      image: imageFile == null
+                          ? const DecorationImage(
+                              image: AssetImage('assets/images/noimage.png'),
+                              fit: BoxFit.cover)
+                          : DecorationImage(
+                              image: FileImage(imageFile!), fit: BoxFit.cover)),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: const BoxDecoration(
+                            color: Colors.greenAccent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8),
+                            ),
+                          ),
+                          child: IconButton(
+                              onPressed: () {
+                                getImageFile();
+                              },
+                              icon: const Icon(
+                                Icons.edit,
+                                color: Colors.white,
+                              ))),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20),
-                const Row(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Basic Info',
+                    const Text('Basic Info',
                         style: TextStyle(
                             color: Color.fromRGBO(151, 151, 151, 1),
                             fontSize: 18,
                             fontWeight: FontWeight.w700)),
-                    Text('Posting Date - 26 June 2023',
-                        style: TextStyle(
+                    Text(DateFormat('dd MMMM yyyy').format(DateTime.now()),
+                        style: const TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 12))
@@ -87,7 +140,7 @@ class _NewPostState extends State<NewPost> {
                 Container(
                   padding: const EdgeInsets.all(20.0),
                   width: 390,
-                  height: 1600,
+                  height: 1410,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     boxShadow: [
@@ -116,8 +169,9 @@ class _NewPostState extends State<NewPost> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
+                      TextField(
+                        controller: productNameController,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
@@ -148,9 +202,13 @@ class _NewPostState extends State<NewPost> {
                           style: const TextStyle(color: Colors.grey),
                           underline: Container(),
                           isExpanded: true,
-                          items: dropDownListItems,
-                          onChanged: (value) => () {},
-                          value: selectedItem,
+                          items: dropDownListItemsCategory,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedCategoryItem = value;
+                            });
+                          },
+                          value: selectedCategoryItem,
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -177,9 +235,13 @@ class _NewPostState extends State<NewPost> {
                           style: const TextStyle(color: Colors.grey),
                           underline: Container(),
                           isExpanded: true,
-                          items: dropDownListItems,
-                          onChanged: (value) => () {},
-                          value: selectedItem,
+                          items: dropDownListItemsSubCategory,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedSubCategoryItem = value;
+                            });
+                          },
+                          value: selectedSubCategoryItem,
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -206,9 +268,13 @@ class _NewPostState extends State<NewPost> {
                           style: const TextStyle(color: Colors.grey),
                           underline: Container(),
                           isExpanded: true,
-                          items: dropDownListItems,
-                          onChanged: (value) => () {},
-                          value: selectedItem,
+                          items: dropDownListItemsUnit,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedUnitItemMinimumOrder = value;
+                            });
+                          },
+                          value: selectedUnitItemMinimumOrder,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -243,9 +309,13 @@ class _NewPostState extends State<NewPost> {
                           style: const TextStyle(color: Colors.grey),
                           underline: Container(),
                           isExpanded: true,
-                          items: dropDownListItems,
-                          onChanged: (value) => () {},
-                          value: selectedItem,
+                          items: dropDownListItemsUnit,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedUnitItemPrice = value;
+                            });
+                          },
+                          value: selectedUnitItemPrice,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -270,44 +340,19 @@ class _NewPostState extends State<NewPost> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
+                      TextField(
+                        controller: addressController,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
-                            hintText: 'No',
+                            hintText: '(Address) 165/42b, main Road, Galle.',
                             hintStyle: TextStyle(color: Colors.grey)),
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            hintText: 'Street 01',
-                            hintStyle: TextStyle(color: Colors.grey)),
-                      ),
-                      const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            hintText: 'Street 02',
-                            hintStyle: TextStyle(color: Colors.grey)),
-                      ),
-                      const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            hintText: 'City',
-                            hintStyle: TextStyle(color: Colors.grey)),
-                      ),
-                      const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
+                      TextField(
+                        controller: districtController,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
@@ -315,8 +360,9 @@ class _NewPostState extends State<NewPost> {
                             hintStyle: TextStyle(color: Colors.grey)),
                       ),
                       const SizedBox(height: 10),
-                      const TextField(
-                        decoration: InputDecoration(
+                      TextField(
+                        controller: provinceController,
+                        decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15))),
@@ -339,7 +385,8 @@ class _NewPostState extends State<NewPost> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(15)),
                             border: Border.all(color: Colors.grey, width: 1)),
-                        child: const TextField(
+                        child: TextField(
+                          controller: descriptionController,
                           keyboardType: TextInputType.multiline,
                           maxLines: 5,
                         ),
@@ -382,7 +429,8 @@ class _NewPostState extends State<NewPost> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(160, 67),
+                          minimumSize: Size(
+                              (MediaQuery.of(context).size.width - 50) / 2, 67),
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.greenAccent,
                           shape: const RoundedRectangleBorder(
@@ -397,7 +445,8 @@ class _NewPostState extends State<NewPost> {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(160, 67),
+                          minimumSize: Size(
+                              (MediaQuery.of(context).size.width - 50) / 2, 67),
                           foregroundColor: Colors.greenAccent,
                           backgroundColor: Colors.white,
                           shape: const RoundedRectangleBorder(
@@ -419,5 +468,15 @@ class _NewPostState extends State<NewPost> {
         bottomNavigationBar: const BottomAppBar(
           height: 40,
         ));
+  }
+
+  Future<void> getImageFile() async {
+    final imagePicker = ImagePicker();
+    final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        imageFile = File(pickedFile.path);
+      });
+    }
   }
 }

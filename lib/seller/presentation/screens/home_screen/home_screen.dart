@@ -179,21 +179,26 @@ class HomeScreen extends StatelessWidget {
                             return PostTileWidgetHorizontal(
                               post: PostListData.postList
                                   .map((e) => PostDataModel(
-                                      imageUrl: e['imageUrl'],
-                                      id: e['id'],
-                                      productName: e['productName'],
-                                      productCategory: e['productCategory'],
-                                      productSubCategory:
-                                          e['productSubCategory'],
-                                      minimumOrderQty: e['minimumOrderQty'],
-                                      unit: e['unit'],
-                                      minimumOrderPrice: e['minimumOrderPrice'],
-                                      minimumOrderPricePer:
-                                          e['minimumOrderPricePer'],
-                                      productRating: e['productRating'],
-                                      productStatus: e['productStatus'],
-                                      countCompletedOrders:
-                                          e['countCompletedOrders']))
+                                        imageUrl: e['imageUrl'],
+                                        id: e['id'],
+                                        productName: e['productName'],
+                                        productCategory: e['productCategory'],
+                                        productSubCategory:
+                                            e['productSubCategory'],
+                                        minimumOrderQty: e['minimumOrderQty'],
+                                        unit: e['unit'],
+                                        minimumOrderPrice:
+                                            e['minimumOrderPrice'],
+                                        minimumOrderPricePer:
+                                            e['minimumOrderPricePer'],
+                                        productRating: e['productRating'],
+                                        productStatus: e['productStatus'],
+                                        countCompletedOrders:
+                                            e['countCompletedOrders'],
+                                        pickupLocation: e['pickupLocation'],
+                                        postedDate: e['postedDate'],
+                                        postDescription: e['postDescription'],
+                                      ))
                                   .toList()
                                   .first,
                             );

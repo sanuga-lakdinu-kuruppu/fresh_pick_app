@@ -14,6 +14,10 @@ class PostListData {
       'countCompletedOrders': 12,
       'imageUrl':
           'https://img.crocdn.co.uk/images/products2/pl/20/00/01/25/pl2000012588_card2_lg.jpg',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '21 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
       'id': '02',
@@ -29,6 +33,10 @@ class PostListData {
       'countCompletedOrders': 20,
       'imageUrl':
           'https://th.bing.com/th/id/R.30fac6788ef0a40e8914446bb3871fb8?rik=PT5Y6cjIgF9MIA&pid=ImgRaw&r=0',
+      'pickupLocation': '4/B, Main Road, Galle',
+      'postedDate': '22 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
       'id': '03',
@@ -44,6 +52,10 @@ class PostListData {
       'countCompletedOrders': 8,
       'imageUrl':
           'https://th.bing.com/th/id/R.252c19d40fb9d12e6ebdb9f2e32d14ca?rik=gHn5zgHZPEIr%2bA&riu=http%3a%2f%2ffishersfruit.com%2fhome%2fwp-content%2fuploads%2f2018%2f11%2fJersey_Mac.jpg&ehk=lPMUg6YWrRQb1mxEhXXhrXQ8VqIVqdbTZVN7Dqr7ukI%3d&risl=&pid=ImgRaw&r=0',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '23 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
       'id': '04',
@@ -59,6 +71,10 @@ class PostListData {
       'countCompletedOrders': 10,
       'imageUrl':
           'https://www.treehugger.com/thmb/QqzRcs4_WSSmFWZk6ePBU3QA6K0=/2121x1414/filters:fill(auto,1)/GettyImages-914241562-14a45a7d90f04701b48eaf26dac309cd.jpg',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '24 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
       'id': '05',
@@ -74,9 +90,13 @@ class PostListData {
       'countCompletedOrders': 10,
       'imageUrl':
           'https://th.bing.com/th/id/R.788c95e5f0f106bea52ab895ef99584f?rik=NVZEtavHkaIHtA&pid=ImgRaw&r=0',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '25 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
-      'id': '05',
+      'id': '06',
       'productName': 'Green Beans (Sri Lankan)',
       'productCategory': 'Vegetable',
       'productSubCategory': 'Leafy Greens',
@@ -89,9 +109,13 @@ class PostListData {
       'countCompletedOrders': 10,
       'imageUrl':
           'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '26 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
     {
-      'id': '06',
+      'id': '07',
       'productName': 'Beetroots (Regular)',
       'productCategory': 'Vegetable',
       'productSubCategory': 'Leafy Greens',
@@ -104,6 +128,10 @@ class PostListData {
       'countCompletedOrders': 10,
       'imageUrl':
           'https://th.bing.com/th/id/OIP.Vz4AEN9c10xb1CyHUZ4EXgHaE8?pid=ImgDet&w=1024&h=683&rs=1',
+      'pickupLocation': '4/B, Temple Road, Galle',
+      'postedDate': '27 July 2023',
+      'postDescription':
+          'Fresh and organic vegetables straight from the farm to your doorstep! Our vegetables are handpicked and carefully selected to ensure that you get the best quality produce. We offer a wide variety of vegetables ranging from leafy greens to root vegetables. Order now and enjoy the taste of fresh vegetables in every meal!',
     },
   ];
 }

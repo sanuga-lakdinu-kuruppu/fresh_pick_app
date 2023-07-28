@@ -5,6 +5,7 @@ import 'package:fresh_pick_app/seller/presentation/screens/post_details_screen/p
 import 'package:fresh_pick_app/seller/presentation/widgets/loading_tile/screen_loading_tile.dart';
 import 'package:fresh_pick_app/seller/presentation/widgets/post_tile/post_tile_widget.dart';
 import '../../../business_logic/market_page/bloc/marketplace_page_bloc.dart';
+import '../../widgets/post_tile/post_tile_widget_test.dart';
 
 class MarketScreen extends StatefulWidget {
   const MarketScreen({super.key});
@@ -14,9 +15,10 @@ class MarketScreen extends StatefulWidget {
 }
 
 class _MarketScreenState extends State<MarketScreen> {
-  final MarketplacePageBloc marketplacePageBloc = MarketplacePageBloc();
+  late MarketplacePageBloc marketplacePageBloc;
   @override
   void initState() {
+    marketplacePageBloc = BlocProvider.of<MarketplacePageBloc>(context);
     marketplacePageBloc.add(InitialFetchEvent());
     super.initState();
   }
@@ -163,9 +165,8 @@ class _MarketScreenState extends State<MarketScreen> {
                         shrinkWrap: true,
                         itemCount: sucessState.posts.length,
                         itemBuilder: (context, index) {
-                          return PostTileWidget(
+                          return PostTileWidgetTest(
                             post: sucessState.posts[index],
-                            marketPlaceBloc: marketplacePageBloc,
                           );
                         },
                       ),

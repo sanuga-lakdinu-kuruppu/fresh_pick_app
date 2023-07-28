@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_pick_app/seller/business_logic/market_page/bloc/marketplace_page_bloc.dart';
 import '../../../data/models/post/post.dart';
 
+// ignore: must_be_immutable
 class PostTileWidget extends StatelessWidget {
   final PostDataModel post;
-  final MarketplacePageBloc marketPlaceBloc;
+  late MarketplacePageBloc marketPlaceBloc;
 
-  const PostTileWidget(
-      {super.key, required this.post, required this.marketPlaceBloc});
+  PostTileWidget({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
+    marketPlaceBloc = BlocProvider.of<MarketplacePageBloc>(context);
     return Align(
       child: GestureDetector(
         onTap: () {

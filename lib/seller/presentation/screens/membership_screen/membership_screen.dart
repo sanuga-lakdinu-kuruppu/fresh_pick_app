@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 import '../../widgets/membership/new_deposit_tile.dart';
 
 class MembershipScreen extends StatefulWidget {

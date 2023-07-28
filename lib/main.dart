@@ -1,11 +1,29 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_pick_app/seller/business_logic/market_page/bloc/marketplace_page_bloc.dart';
+import 'package:fresh_pick_app/seller/business_logic/notification_page/bloc/notification_page_bloc.dart';
+import 'package:fresh_pick_app/seller/business_logic/order_page/bloc/order_page_bloc.dart';
+import 'package:fresh_pick_app/seller/business_logic/settings_page/bloc/settings_page_bloc.dart';
 import 'package:fresh_pick_app/seller/presentation/routes/generated_routes.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      builder: (context) => const MyApp(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => MarketplacePageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => SettingsPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NotificationPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OrderPageBloc(),
+        ),
+      ],
+      child: const MyApp(),
     ),
   );
 }
@@ -17,8 +35,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       title: 'Fresh Pick App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

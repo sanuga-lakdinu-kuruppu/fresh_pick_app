@@ -49,17 +49,17 @@ class PostDetailsPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Row(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Basic Info',
+                    const Text('Basic Info',
                         style: TextStyle(
                             color: Color.fromRGBO(151, 151, 151, 1),
                             fontSize: 18,
                             fontWeight: FontWeight.w700)),
-                    Text('Posted Date - 26 June 2023',
-                        style: TextStyle(
+                    Text('Posted Date - ${post.postedDate}',
+                        style: const TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                             fontSize: 12))
@@ -99,8 +99,8 @@ class PostDetailsPage extends StatelessWidget {
                                         icon: const Icon(Icons.edit))
                                   ],
                                 ),
-                                const Text('D. Y. Vihara Piyumanthi',
-                                    style: TextStyle(
+                                Text(post.productName,
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -157,8 +157,8 @@ class PostDetailsPage extends StatelessWidget {
                                         icon: const Icon(Icons.edit))
                                   ],
                                 ),
-                                const Text('50 kg',
-                                    style: TextStyle(
+                                Text('${post.minimumOrderQty} ${post.unit}',
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -182,8 +182,8 @@ class PostDetailsPage extends StatelessWidget {
                                         ))
                                   ],
                                 ),
-                                const Text('03',
-                                    style: TextStyle(
+                                Text('${post.countCompletedOrders}',
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -208,8 +208,8 @@ class PostDetailsPage extends StatelessWidget {
                                         icon: const Icon(Icons.edit))
                                   ],
                                 ),
-                                const Text('Rs. 50.00',
-                                    style: TextStyle(
+                                Text('Rs. ${post.minimumOrderPrice}0  ',
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -232,8 +232,9 @@ class PostDetailsPage extends StatelessWidget {
                                         ))
                                   ],
                                 ),
-                                const Text('1 kg',
-                                    style: TextStyle(
+                                Text(
+                                    '${post.minimumOrderPricePer} ${post.unit}',
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -245,10 +246,10 @@ class PostDetailsPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Text('Pick up Location',
                                         style: TextStyle(color: Colors.grey)),
@@ -258,8 +259,8 @@ class PostDetailsPage extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                Text('4/b, Temple Road, Galle',
-                                    style: TextStyle(
+                                Text(post.pickupLocation,
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -275,7 +276,7 @@ class PostDetailsPage extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {},
-                              child: const Text('More'),
+                              child: const Text('Map View'),
                             ),
                           ],
                         ),
@@ -296,8 +297,8 @@ class PostDetailsPage extends StatelessWidget {
                                         icon: const Icon(Icons.edit))
                                   ],
                                 ),
-                                const Text('Vegetables',
-                                    style: TextStyle(
+                                Text(post.productCategory,
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -320,8 +321,8 @@ class PostDetailsPage extends StatelessWidget {
                                         ))
                                   ],
                                 ),
-                                const Text('Up country',
-                                    style: TextStyle(
+                                Text(post.productSubCategory,
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black))
@@ -357,9 +358,8 @@ class PostDetailsPage extends StatelessWidget {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(15)),
                               border: Border.all(color: Colors.grey, width: 2)),
-                          child: const Text(
-                              'This is about up country product with 750 kg regular carrots to sell.',
-                              style: TextStyle(
+                          child: Text(post.postDescription,
+                              style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black)),
@@ -395,17 +395,17 @@ class PostDetailsPage extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(15))),
                   child: Column(children: [
-                    const Row(
+                    Row(
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Description',
+                            const Text('Overall Ratings',
                                 style: TextStyle(color: Colors.grey)),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               children: [
-                                Row(
+                                const Row(
                                   children: [
                                     Icon(Icons.star, color: Colors.yellow),
                                     Icon(Icons.star, color: Colors.yellow),
@@ -414,9 +414,9 @@ class PostDetailsPage extends StatelessWidget {
                                     Icon(Icons.star, color: Colors.red),
                                   ],
                                 ),
-                                SizedBox(width: 10),
-                                Text('4/5',
-                                    style: TextStyle(
+                                const SizedBox(width: 10),
+                                Text(post.productRating.toString(),
+                                    style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.black)),

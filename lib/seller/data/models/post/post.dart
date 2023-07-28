@@ -1,6 +1,8 @@
 class PostDataModel {
   final String id;
   final String productName;
+  final String postedDate;
+  final String postDescription;
   final String productCategory;
   final String productSubCategory;
   final double minimumOrderQty;
@@ -11,9 +13,13 @@ class PostDataModel {
   final bool productStatus;
   final int countCompletedOrders;
   final String imageUrl;
+  final String pickupLocation;
 
   PostDataModel(
-      {required this.imageUrl,
+      {required this.postDescription,
+      required this.pickupLocation,
+      required this.postedDate,
+      required this.imageUrl,
       required this.id,
       required this.productName,
       required this.productCategory,
