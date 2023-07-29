@@ -9,6 +9,7 @@ import 'package:fresh_pick_app/seller/presentation/widgets/analytic_tile/request
 import 'package:fresh_pick_app/seller/presentation/widgets/post_tile/post_tile_widget_horizontal.dart';
 import '../../../../test_data/post_list.dart';
 import '../../../data/models/post/post.dart';
+import '../login_screen/login_main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -64,7 +65,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()));
+                        },
                         style: ElevatedButton.styleFrom(
                             minimumSize: const Size(double.maxFinite, 50),
                             backgroundColor: Colors.white,

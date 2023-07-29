@@ -78,6 +78,8 @@ flutter:
     - assets/images/noimage.png
     - assets/images/transaction.png
     - assets/images/bill.png
+    - assets/images/vegetable_back.jpg
+    - assets/images/google_logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

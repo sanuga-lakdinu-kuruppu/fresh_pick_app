@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_pick_app/seller/business_logic/auth_page/bloc/auth_page_bloc.dart';
 import 'package:fresh_pick_app/seller/business_logic/market_page/bloc/marketplace_page_bloc.dart';
 import 'package:fresh_pick_app/seller/business_logic/notification_page/bloc/notification_page_bloc.dart';
 import 'package:fresh_pick_app/seller/business_logic/order_page/bloc/order_page_bloc.dart';
@@ -21,6 +22,9 @@ void main() {
         ),
         BlocProvider(
           create: (context) => OrderPageBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AuthPageBloc(),
         ),
       ],
       child: const MyApp(),
